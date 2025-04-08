@@ -1,0 +1,1 @@
+{"root":["./src/App.tsx","./src/axios.ts","./src/main.tsx","./src/vite-env.d.ts","./src/app/store.ts","./src/components/Filter.tsx","./src/components/Form.tsx","./src/components/List.tsx","./src/features/actions/postActions.ts","./src/features/posts/postSlice.ts","./src/features/posts/postThunks.ts"],"version":"5.8.3"}
