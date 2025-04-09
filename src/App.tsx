@@ -8,12 +8,12 @@ const App = () => {
 
   return (
     <>
-    <div className="container">
-    <ToastContainer />
-      <Filter />
-      <List />
-      <Form />
-    </div>
+      <div className="container">
+        <ToastContainer />
+        <Filter />
+        <List />
+        <Form />
+      </div>
 
     </>
   )
