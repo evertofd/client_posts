@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { filterPosts } from "../features/posts/postSlice"
-import { RootState, AppDispatch } from "../app/store";
+import { RootState } from "../app/store";
 
 const Filter = () => {
     const { posts } = useSelector((state: RootState) => state.posts);
