@@ -21,7 +21,8 @@ Para iniciar el proyecto localmente:
 
 1. Clona este repositorio.
 2. Ingresa al directorio del proyecto.
-3. Ejecuta los siguientes comandos:
+3. Crear el archivo .env y configurar la variable de entorno
+4. Ejecuta los siguientes comandos:
 
 ```bash
 npm install
