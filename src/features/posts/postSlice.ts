@@ -21,7 +21,7 @@ const initialState: PostState = {
     posts: [],
     filteredPosts: [],
     loading: false,
-    filterQuery:"",
+    filterQuery: "",
     error: null,
 };
 
@@ -37,16 +37,18 @@ const postSlice = createSlice({
         },
         deletePost(state, action) {
             state.posts = state.posts.filter((post) => post.id !== action.payload);
+            state.filteredPosts = state.filteredPosts.filter((post) => post.id !== action.payload);
         },
         filterPosts(state, action) {
-            state.filterQuery = action.payload
-            const query = action.payload.toLowerCase();
-            state.filteredPosts = state.posts.filter(post =>
-              post.name.toLowerCase().includes(query)
-            );
-          },
-       
-     
+            state.filterQuery = action.payload;
+            const query = action.payload.toLowerCase().trim();
+            state.filteredPosts = query === ""
+                ? state.posts
+                : state.posts.filter(post =>
+                    post.name.toLowerCase().includes(query)
+                );
+        },
+
     }, extraReducers: (builder) => {
         builder
             .addCase(fetchPosts.pending, (state) => {

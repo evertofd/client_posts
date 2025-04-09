@@ -1,0 +1,45 @@
+body{
+    background-color: rgb(235, 232, 232);
+}
+
+.list_table{
+    min-height: 400px;
+    height: calc(90vh - 350px);
+    overflow-y: auto;
+}
+
+.list_table_empty {
+    height: calc(90vh - 392px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f8f9fa; 
+  }
+  
+  .list_table_empty > div {
+    width: 100%;
+  }
+
+.list_table::-webkit-scrollbar {
+    width: 8px;
+}
+
+.list_table::-webkit-scrollbar-track {
+    background: #e1e1e1;
+    border-radius: 4px;
+}
+
+.list_table::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+.list_table::-webkit-scrollbar-track:hover,
+.list_table::-webkit-scrollbar-track:active {
+    background: #d4d4d4;
+}
+
+.list_table::-webkit-scrollbar-thumb:hover,
+.list_table::-webkit-scrollbar-thumb:active {
+    background: #555;
+}

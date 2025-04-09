@@ -8,10 +8,13 @@ const App = () => {
 
   return (
     <>
-      <ToastContainer />
+    <div className="container">
+    <ToastContainer />
       <Filter />
       <List />
       <Form />
+    </div>
+
     </>
   )
 }
