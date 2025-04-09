@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchPosts } from "../features/posts/postThunks";
 import { RootState, AppDispatch } from "../app/store";
@@ -7,6 +7,7 @@ import { toast } from 'react-toastify';
 
 const List = () => {
     const dispatch = useDispatch<AppDispatch>();
+    const [deletingId, setDeletingId] = useState<number | null>(null);
     const { posts, loading, error, filterQuery, filteredPosts } = useSelector((state: RootState) => state.posts);
 
     /**
@@ -19,11 +20,14 @@ const List = () => {
 
     const handleDelete = async (id: number) => {
         try {
+            setDeletingId(id);
             const response = await dispatch(removePost(id));
             toast.success(response.message);
         } catch (error) {
             console.error('Error al eliminar el post', error);
             toast.error('Error al eliminar el post');
+        } finally {
+            setDeletingId(null);
         }
     };
 
@@ -79,8 +83,14 @@ const List = () => {
                                                     onClick={() => handleDelete(post.id)}
                                                     className="btn btn-danger btn-sm"
                                                     title="Eliminar post"
+                                                    disabled={deletingId !== null}
+
                                                 >
-                                                    <i className="bi bi-trash3"></i>
+                                                    {deletingId === post.id ? (
+                                                        <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                                    ) : (
+                                                        <i className="bi bi-trash3"></i>
+                                                    )}
                                                 </button>
                                             </td>
                                         </tr>
