@@ -8,6 +8,11 @@ const Filter = () => {
     const [filter, setFilter] = useState('');
     const dispatch = useDispatch();
 
+    /**
+    * @Everto Farias
+    * @description: Función que maneja los cambios en el campo de búsqueda, actualiza el estado del filtro y resetea los resultados si el campo está vacío.
+    * @return: void - Actualiza el estado y puede despachar una acción de filtrado
+    */
     const handleChange = (e: any) => {
         const value = e.target.value;
         setFilter(value);
@@ -16,7 +21,12 @@ const Filter = () => {
             dispatch(filterPosts(value));
         }
     };
-
+    
+    /**
+    * @Everto Farias
+    * @description: Función que maneja el envío del formulario de búsqueda y ejecuta el filtrado de posts
+    * @return: void - Evitamos la recarga del formulario y activamos el dispatch de los filtros.
+    */
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         dispatch(filterPosts(filter));

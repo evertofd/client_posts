@@ -13,10 +13,21 @@ const Form = () => {
         description: '',
     });
 
+    /**
+    * @Everto Farias
+    * @description: Función que maneja los cambios en los campos del formulario, actualizando el estado con los valores ingresados
+    * @return: void - Actualiza el estado del formulario manteniendo los valores previos y modificando solo el campo cambiado
+    */
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
     };
+
+    /**
+    * @Everto Farias
+    * @description: Funciòn que maneja el envío del formulario para crear un nuevo post
+    * @return: Evitamos la recarga del formulario, ejecutamos el dispacth para crear un post y luego limpia el formulario
+    */
 
     const handleSubmit = async (e: React.FormEvent) => {
         try {

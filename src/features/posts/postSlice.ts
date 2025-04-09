@@ -25,6 +25,14 @@ const initialState: PostState = {
     error: null,
 };
 
+/**
+* @Everto Farias
+* @description: Configuración del slice de Redux para manejar el estado de posts, incluyendo reducers para establecer, añadir, eliminar y filtrar posts, 
+* así como reducers extra para manejar estados de carga de datos asíncronos.
+* @param: name (nombre del slice), initialState (estado inicial), reducers (funciones modificadoras), extraReducers (para acciones asíncronas)
+* @return: Objeto slice de Redux con acciones y reducer para gestión del estado de posts
+*/
+
 const postSlice = createSlice({
     name: 'posts',
     initialState,

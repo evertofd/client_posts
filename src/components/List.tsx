@@ -9,6 +9,14 @@ const List = () => {
     const dispatch = useDispatch<AppDispatch>();
     const { posts, loading, error, filterQuery, filteredPosts } = useSelector((state: RootState) => state.posts);
 
+    /**
+
+    * @Everto Farias
+    * @description: Función asíncrona que gestiona la eliminación de un post segùn su ID
+    * @param: id (número que identifica al post que se desea eliminar)
+    * @return: Activa el dispatch para eliminar y muestra notificación de éxito o error
+    */
+
     const handleDelete = async (id: number) => {
         try {
             const response = await dispatch(removePost(id));
